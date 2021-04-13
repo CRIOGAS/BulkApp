@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="fill_parent">
+
+            <CheckBox
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkOrdenVenta" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_weight="6"
+            android:layout_height="fill_parent">
+            <TextView
+                android:id="@+id/txtOrdenVentaAndDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+            <TextView
+                android:id="@+id/txtOrdenVentaCliente"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+            <TextView
+                android:id="@+id/txtOrdenVentaChofer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+            <TextView
+                android:id="@+id/txtOrdenVentaProducto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

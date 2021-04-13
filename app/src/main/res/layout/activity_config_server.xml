@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_config_server"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    tools:context="com.criogas.bulkllenadoentregaapp.ConfigServer">
+
+    <TextView
+        android:text="IP Servidor:"
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIpServidor"
+        android:layout_weight="1"
+        android:maxLines="1"
+        />
+
+    <TextView
+        android:text="Puerto Servidor:"
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPortServidor"
+        android:inputType="number"
+        android:layout_weight="1"
+        android:maxLines="1"
+        />
+
+    <TextView
+        android:text="Sucursal:"
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSucursal"
+        android:inputType="text"
+        android:layout_weight="1"
+        android:maxLines="1"
+        />
+
+    <Button
+        android:text="Guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saveServerConfig"
+        android:id="@+id/btnSaveServerConfig"
+        />
+
+</LinearLayout>

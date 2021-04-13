@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_reimpresion_ticket"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.criogas.bulkllenadoentregaapp.ReimpresionTicketActivity">
+
+    <TextView
+        android:text="Selecciona Remisión"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtViewRemisionToPrint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/txtViewRemisionToPrint"
+        android:id="@+id/lstViewRemisionesToPrint" />
+
+</RelativeLayout>

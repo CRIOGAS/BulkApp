@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">CrioBulk</string>
+    <string name="cilindrosFaltantesQuestion">
+        Existen %1$d cilindros sin entregar\n¿Desea continuar?
+    </string>
+
+    <string-array name="menu_options">
+        <item>Carga Pipa</item>
+        <item>Entrega Pipa CRIOGAS</item>
+    </string-array>
+
+    <string-array name="turnos_llenado">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="pipa_ejemplo">
+        <item>Pipa 1</item>
+        <item>Pipa 2</item>
+        <item>Pipa 3</item>
+        <item>Pipa 4</item>
+        <item>Pipa 5</item>
+        <item>Pipa 6</item>
+        <item>Pipa 7</item>
+        <item>Pipa 8</item>
+        <item>Pipa 9</item>
+        <item>Pipa 10</item>
+        <item>Pipa Cliente</item>
+    </string-array>
+
+    <string-array name="unidad_de_medida">
+        <item>LB - Llibra</item>
+        <item>KG - Kilogramo</item>
+        <item>LT - Litro</item>
+        <item>GAL - Galon</item>
+        <item>PIE3 - Pie Cúbico</item>
+        <item>MT3 - Metro Cúbico</item>
+    </string-array>
+</resources>

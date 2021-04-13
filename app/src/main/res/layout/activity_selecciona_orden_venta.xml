@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_selecciona_ov"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.criogas.bulkllenadoentregaapp.SeleccionaOrdenVentaActivity">
+
+        <TextView
+            android:text="Selecciona OV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textSeleccionaOV"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="Selecciona Pipa:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPipa"
+            android:layout_below="@+id/textSeleccionaOV"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="52dp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerPipas"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewPipa"/>
+
+        <!--<TextView
+            android:text="Unidad de Medida:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/unidad_medida"
+            android:layout_below="@+id/textViewPipa"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="52dp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerUnidadMedida"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/unidad_medida"
+            android:entries="@array/unidad_de_medida"/>-->
+
+        <ListView
+            android:id="@+id/lstViewOrdenesVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerPipas"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="5dp"
+            android:choiceMode="multipleChoice" />
+</RelativeLayout>

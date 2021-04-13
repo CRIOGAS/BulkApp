@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/btnInfoWifi"
+        android:icon="@mipmap/ic_receipt_black_18dp"
+        android:title="InformacionWIFI"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/btnConfigMenu"
+        android:icon="@mipmap/ic_settings_black_24dp"
+        android:title="Configuracion"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>

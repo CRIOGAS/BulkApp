@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_selecciona_ov"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.criogas.bulkllenadoentregaapp.CreaLoteLLneado">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textViewGeneraLote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Genera Lote"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <TextView
+                android:id="@+id/textFechaLlenado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewGeneraLote"
+                android:layout_marginTop="10dp"
+                android:text="Selecciona feha de llenado : " />
+
+            <EditText
+                android:id="@+id/editfechaLlenado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textFechaLlenado"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="00/00/0000"
+                android:inputType="date"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/textOVS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editfechaLlenado"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:text="OV Seleccionada(s): " />
+
+            <EditText
+                android:id="@+id/editTextOVSeleccionadas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textOVS"
+                android:hint=""
+                android:editable="false"
+                android:focusable="false"/>
+
+            <TextView
+                android:id="@+id/textViewLlenador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextOVSeleccionadas"
+                android:layout_marginTop="10dp"
+                android:text="Operador : " />
+
+            <Spinner
+                android:id="@+id/spinnerLlenadores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLlenador"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/textViewTurno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinnerLlenadores"
+                android:layout_marginTop="10dp"
+                android:text="Turno : " />
+            <Spinner
+                android:id="@+id/spinnerTurno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewTurno"
+                android:entries="@array/turnos_llenado" />
+
+            <TextView
+                android:id="@+id/textUnidProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinnerTurno"
+                android:layout_marginTop="10dp"
+                android:text="Unidad Productora : " />
+
+            <Spinner
+                android:id="@+id/spinnerUnidadProductora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textUnidProd" />
+
+            <TextView
+                android:id="@+id/textTanque"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinnerUnidadProductora"
+                android:layout_marginTop="10dp"
+                android:text="Tanque : " />
+
+            <Spinner
+                android:id="@+id/spinnerTanque"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textTanque" />
+
+            <TextView
+                android:id="@+id/textViewPresion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinnerTanque"
+                android:layout_marginTop="10dp"
+                android:text="Presión : " />
+
+            <EditText
+                android:id="@+id/textEditPresion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPresion"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/textViewPesoBruto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPresion"
+                android:layout_marginTop="70dp"
+                android:text="Peso bruto(Kg) : " />
+
+            <EditText
+                android:id="@+id/textEditPesoBruto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPesoBruto"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/textViewPesoTara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPesoBruto"
+                android:layout_marginTop="10dp"
+                android:text="Peso tara(Kg) : " />
+
+            <EditText
+                android:id="@+id/textEditPesoTara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPesoTara"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/textViewPesoNeto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPesoTara"
+                android:layout_marginTop="10dp"
+                android:text="Peso neto(Lt) : " />
+
+            <EditText
+                android:id="@+id/textEditPesoNeto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPesoNeto"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="numberDecimal" />
+
+            <Button
+                android:id="@+id/btnGeneraLoteLlenado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPesoNeto"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"
+                android:onClick="generaLoteOnClick"
+                android:text="Calcula Peso Neto" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
