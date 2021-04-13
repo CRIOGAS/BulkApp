@@ -32,7 +32,7 @@ import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-@SuppressWarnings("uncheked")
+@SuppressWarnings("uncheked")//ADD WARNING
 public class CreaLoteLLneado extends AppCompatActivity {
     Context ctx;
     private SweetAlertDialog progressUpdateDialog;
