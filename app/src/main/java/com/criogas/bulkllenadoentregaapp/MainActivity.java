@@ -1,6 +1,9 @@
 package com.criogas.bulkllenadoentregaapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,8 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.criogas.bulkllenadoentregaapp.rest.RestApiPipas;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
+
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,9 +89,31 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listViewMainMenu);
         listView.setOnItemClickListener(itemClickListener);
 
+      //  new GetInfoFromRest().execute();
+
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     *
+     * Ejemplo de llamada del REST por AsyncTask
+     * /
+    private class GetInfoFromRest extends AsyncTask<Void, Void, String> {
+
+        protected String doInBackground(Void... params) {
+            RestApiPipas apiPipas = new RestApiPipas();
+            String token = apiPipas.getToken();
+            return token;
+        }
+
+        protected void onProgressUpdate(Void... progress) {
+
+        }
+
+        protected void onPostExecute(String result) {
+            Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+        }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
