@@ -13,7 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.criogas.bulkllenadoentregaapp.model.OrdenVenta;
 import com.criogas.bulkllenadoentregaapp.rest.RestApiPipas;
+import com.criogas.bulkllenadoentregaapp.rest.RestSalesOrder;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import java.net.URL;
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listViewMainMenu);
         listView.setOnItemClickListener(itemClickListener);
 
-      //  new GetInfoFromRest().execute();
+        new GetInfoFromRest().execute();
 
         super.onCreate(savedInstanceState);
     }
@@ -97,13 +99,17 @@ public class MainActivity extends AppCompatActivity {
     /**
      *
      * Ejemplo de llamada del REST por AsyncTask
-     * /
+     **/
     private class GetInfoFromRest extends AsyncTask<Void, Void, String> {
 
         protected String doInBackground(Void... params) {
             RestApiPipas apiPipas = new RestApiPipas();
             String token = apiPipas.getToken();
-            return token;
+
+            RestSalesOrder restSalesOrder = new RestSalesOrder();
+            OrdenVenta ov = restSalesOrder.GetByID(token, 1484);
+            String dato = ov.getCliente() + " - " + ov.getProducto() + " - " + ov.getDesccorta() + " - " + ov.getRevision() + " - " + ov.getPipa() + " - " + ov.getQty() + " - " + ov.getUdm();
+            return dato;
         }
 
         protected void onProgressUpdate(Void... progress) {
@@ -113,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
         }
-    }*/
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

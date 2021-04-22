@@ -20,6 +20,13 @@ public class OrdenVenta implements Serializable {
     private String producto;
     private String desccorta;
     private String gas_dp;
+    private double qty;
+    private String pipa;
+    private String udm;
+    private String revision;
+
+    public OrdenVenta() {
+    }
 
     public OrdenVenta(int folio, String cliente, Date creado, String cveOperacion, String promotor, String direccion, String nombre_c, String sucursal, boolean isSeleccionado) {
         this.folio = folio;
@@ -154,5 +161,37 @@ public class OrdenVenta implements Serializable {
 
     public void setGas_dp(String gas_dp) {
         this.gas_dp = gas_dp;
+    }
+
+    public double getQty() {
+        return qty;
+    }
+
+    public void setQty(double qty) {
+        this.qty = qty;
+    }
+
+    public String getPipa() {
+        return pipa;
+    }
+
+    public void setPipa(String pipa) {
+        this.pipa = pipa;
+    }
+
+    public String getUdm() {
+        return udm;
+    }
+
+    public void setUdm(String udm) {
+        this.udm = udm;
+    }
+
+    public String getRevision() {
+        return revision;
+    }
+
+    public void setRevision(String revision) {
+        this.revision = revision;
     }
 }
