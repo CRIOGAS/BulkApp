@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             String token = apiPipas.getToken();
 
             RestSalesOrder restSalesOrder = new RestSalesOrder();
-            OrdenVenta ov = restSalesOrder.GetByID(token, 1484);
+            OrdenVenta ov = restSalesOrder.GetByID(1484);
             String dato = ov.getCliente() + " - " + ov.getProducto() + " - " + ov.getDesccorta() + " - " + ov.getRevision() + " - " + ov.getPipa() + " - " + ov.getQty() + " - " + ov.getUdm();
             return dato;
         }
