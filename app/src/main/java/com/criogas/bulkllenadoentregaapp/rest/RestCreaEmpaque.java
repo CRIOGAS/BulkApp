@@ -56,6 +56,18 @@ public class RestCreaEmpaque {
         return packNumReturn;
     }
 
+    /**
+     *
+     * @param prmEmpaque
+     * @param prmOV
+     * @param numLine - Siempre 1
+     * @param prmCveProducto
+     * @param prmWhHse - BAHIAORI
+     * @param prmBin - PIPA01 - PIPA02
+     * @param qty
+     * @param prmUdm
+     * @return
+     */
     public String creaLinea(int prmEmpaque, int prmOV, int numLine, String prmCveProducto, String prmWhHse, String prmBin, double qty, String prmUdm) {
         RestApiPipas restApi = new RestApiPipas();
         String token = restApi.getToken();
