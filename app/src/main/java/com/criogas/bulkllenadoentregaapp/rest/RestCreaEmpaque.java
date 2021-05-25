@@ -63,7 +63,7 @@ public class RestCreaEmpaque {
      * @param numLine - Siempre 1
      * @param prmCveProducto
      * @param prmWhHse - BAHIAORI
-     * @param prmBin - PIPA01 - PIPA02
+     * @param prmBin - PIPA01 - PIPA02 - ...
      * @param qty
      * @param prmUdm
      * @return

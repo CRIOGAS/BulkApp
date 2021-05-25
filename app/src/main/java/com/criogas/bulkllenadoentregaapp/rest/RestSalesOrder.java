@@ -149,6 +149,7 @@ public class RestSalesOrder {
 
             OrdenVenta ov = new OrdenVenta();
             ov.setFolio(ovHead.get("OrderNum").asInt());
+            ov.setCliente(ovHead.get("BTCustID").asText());
             ov.setCliente(ovHead.get("BTCustNumName").asText());
             ov.setProducto(ovDetail.get("PartNum").asText());
             ov.setDesccorta(ovDetail.get("LineDesc").asText());
