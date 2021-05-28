@@ -41,6 +41,18 @@ public class RestSalesOrder {
     }
 
     /**
+     * Regresa True si ya tiene un empaque. Falso si esta libre la OV
+     * @param prmOrderNum
+     * @return
+     */
+    public boolean existeEmpaque(int prmOrderNum) {
+        RestApiPipas api = new RestApiPipas();
+        String token = api.getToken();
+
+        return getNumEmpaques(token, prmOrderNum);
+    }
+
+    /**
      * Actualiza la revisión utilizada en al orden de venta para decidir la ingeniería a utilizar (UP1 O UP2)
      * @param prmOrderNum
      * @param prmRevision
@@ -165,4 +177,31 @@ public class RestSalesOrder {
         }
     }
 
+    private boolean getNumEmpaques(String token, int prmOrderNum) {
+        try {
+            String url = RestApiPipas.URL_BASE + "api/v2/odata/28701/BaqSvc/C_TIENE_EMPAQUE/Data?$filter=ShipDtl_OrderNum eq " + prmOrderNum;
+
+            RestTemplate r = new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.add("Authorization", "Bearer " + token);
+            headers.add("X-API-Key", RestApiPipas.API_KEY);
+            headers.add("Accept", "application/json");
+
+            HttpEntity entity = new HttpEntity(headers);
+
+            ResponseEntity<String> response = new RestTemplate().exchange(url, HttpMethod.GET, entity, String.class);
+
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readTree(response.getBody());
+
+            if(root.toString().contains("[]"))
+                return false;
+            else
+                return true;
+
+        } catch(Exception ex) {
+            return true;
+        }
+    }
 }
