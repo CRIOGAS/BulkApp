@@ -24,6 +24,8 @@ public class OrdenVenta implements Serializable {
     private String pipa;
     private String udm;
     private String revision;
+    private String email1;
+    private String email2;
 
     public OrdenVenta() {
     }
@@ -193,5 +195,21 @@ public class OrdenVenta implements Serializable {
 
     public void setRevision(String revision) {
         this.revision = revision;
+    }
+
+    public String getEmail1() {
+        return email1;
+    }
+
+    public void setEmail1(String email1) {
+        this.email1 = email1;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public void setEmail2(String email2) {
+        this.email2 = email2;
     }
 }
