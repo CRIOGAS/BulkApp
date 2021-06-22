@@ -173,6 +173,12 @@ public class RestSalesOrder {
         }
     }
 
+    /**
+     *
+     * @param token
+     * @param prmOrderNum
+     * @return
+     */
     private String GetByID(String token, int prmOrderNum) {
         try {
 
