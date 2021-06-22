@@ -29,10 +29,10 @@ public class CreaLotePipaRest implements ICreaLotePipaRest {
     }
 
     @Override
-    public String creaInfoLLenadoPipa(ArrayList<OrdenVenta> listaOVSeleccionadas, String fechaLlenado, String producto, String cveLlenador, String turno, String up, String tanque, String presion, String pesoNeto, String pipa) {
+    public String creaInfoLLenadoPipa(ArrayList<OrdenVenta> listaOVSeleccionadas, String fechaLlenado, String producto, String cveLlenador, String turno, String up, String tanque, String presion, String pesoNeto, String pipa, String observaciones, String mermaLlenado) {
         progressUpdateDialog.setTitleText("Creando Lote");
         progressUpdateDialog.setContentText("espere...");
-        progressUpdateDialog.show();
+        //progressUpdateDialog.show();
         try {
             JSONObject jsonObjectGeneral = new JSONObject();
 
@@ -56,6 +56,8 @@ public class CreaLotePipaRest implements ICreaLotePipaRest {
             jsonObjectInfoLlenado.put("turno",turno);
             jsonObjectInfoLlenado.put("planta",up);
             jsonObjectInfoLlenado.put("tanque",tanque);
+            jsonObjectInfoLlenado.put("observaciones",observaciones);
+            jsonObjectInfoLlenado.put("merma_llenado",mermaLlenado);
             jsonObjectInfoLlenado.put("sitio", ConfigServer.SUCURSAL);
             jsonArrayInfoLlenado.put(jsonObjectInfoLlenado);
             jsonObjectGeneral.put("infollenado_pipas",jsonArrayInfoLlenado);

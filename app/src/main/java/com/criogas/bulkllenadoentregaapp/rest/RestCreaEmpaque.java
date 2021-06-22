@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -142,8 +145,12 @@ public class RestCreaEmpaque {
             JSONObject jsonPrm = new JSONObject();
             jsonPrm.put("ds", new JSONObject());
 
+            //HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
+            //ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
@@ -177,8 +184,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("orderNum", prmOV);
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dsObj)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -225,8 +233,9 @@ public class RestCreaEmpaque {
 
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dsObj)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -295,8 +304,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("packNum", prmPackNum);
             jsonPrm.put("orderNum", 0);
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -329,8 +339,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("orderNum", prmOV);
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dsObj)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -372,8 +383,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dsObj)));
 
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -408,8 +420,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("orderLine", prmLine);
             jsonPrm.put("subsPart", prmCveProducto);
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -444,8 +457,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("orderRelNum", 1);
             jsonPrm.put("allowNewShipTo", true);
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -488,8 +502,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("displayInvQty", qty);
             jsonPrm.put("ourJobShipQty", 0);
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -524,8 +539,9 @@ public class RestCreaEmpaque {
             jsonPrm.put("whseCode", prmWhse);
             jsonPrm.put("whseField", "WarehouseCode");
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");
@@ -565,8 +581,9 @@ public class RestCreaEmpaque {
             JSONObject jsonPrm = new JSONObject();
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dsObj)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds");

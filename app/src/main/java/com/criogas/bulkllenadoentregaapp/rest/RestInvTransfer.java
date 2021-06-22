@@ -10,8 +10,10 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
@@ -101,8 +103,9 @@ public class RestInvTransfer {
             jsonPrm.put("uomCode", "");
             jsonPrm.put("ds", new JSONObject());
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
@@ -134,8 +137,9 @@ public class RestInvTransfer {
             jsonPrm.put("proposedValue", prmQty);
             jsonPrm.put("ds", new JSONObject(prmDs));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
@@ -194,8 +198,9 @@ public class RestInvTransfer {
             jsonPrm.put("transferQty", prmQty);
             jsonPrm.put("ds", new JSONObject(prmDs));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
@@ -256,8 +261,9 @@ public class RestInvTransfer {
             jsonPrm.put("ipBinNum", prmBinOrigen);
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(nodeInvTrans)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds/InvTrans");
@@ -315,8 +321,9 @@ public class RestInvTransfer {
             jsonPrm.put("ipToWhse", prmWhseDestino);
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(nodeInvTrans)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds/InvTrans");
@@ -375,8 +382,9 @@ public class RestInvTransfer {
             jsonPrm.put("ipToBinNum", prmBinDestino);
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(nodeInvTrans)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds/InvTrans");
@@ -435,8 +443,9 @@ public class RestInvTransfer {
             JSONObject jsonPrm = new JSONObject();
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(nodeInvTrans)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
 
@@ -500,8 +509,9 @@ public class RestInvTransfer {
             JSONObject jsonPrm = new JSONObject();
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(nodeInvTrans)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds/InvTrans");
@@ -554,8 +564,9 @@ public class RestInvTransfer {
             JSONObject jsonPrm = new JSONObject();
             jsonPrm.put("ds", new JSONObject(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(nodeInvTrans)));
 
+            r.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
             HttpEntity<String> request = new HttpEntity<>(jsonPrm.toString(), headers);
-            ResponseEntity<String> response = new RestTemplate().postForEntity(url, request, String.class);
+            ResponseEntity<String> response = r.postForEntity(url, request, String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode ds = root.at("/parameters/ds/InvTrans");

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_selecciona_cliente"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.criogas.bulkllenadoentregaapp.EntregaOvClienteActivity">
+
+    <TextView
+        android:text="Info. Orden de Venta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtViewEntregaCliente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresa Orden de Venta"
+        android:layout_below="@+id/txtViewEntregaCliente"
+        android:id="@+id/textViewIngresaOV" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_below="@+id/textViewIngresaOV"
+        android:id="@+id/editTextOVIngresa"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Información de OV :"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/editTextOVIngresa"
+        android:id="@+id/txtViewInfoOvSeleccionada" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="textMultiLine"
+        android:editable="false"
+        android:focusable="false"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/txtViewInfoOvSeleccionada"
+        android:id="@+id/editTextInfoOvSeleccionada"/>
+
+
+</RelativeLayout>

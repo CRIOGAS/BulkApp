@@ -7,6 +7,8 @@
     <string-array name="menu_options">
         <item>Carga Pipa</item>
         <item>Entrega Pipa CRIOGAS</item>
+        <item>Sincroniza</item>
+        <item>Foto Ticket</item>
     </string-array>
 
     <string-array name="turnos_llenado">
@@ -37,4 +39,11 @@
         <item>PIE3 - Pie Cúbico</item>
         <item>MT3 - Metro Cúbico</item>
     </string-array>
+    <string name="title_activity_entrega_cliente">EntregaCliente</string>
+
+    <string-array name="tipo_entrega">
+        <item>Báscula</item>
+        <item>Flujometro</item>
+    </string-array>
+
 </resources>

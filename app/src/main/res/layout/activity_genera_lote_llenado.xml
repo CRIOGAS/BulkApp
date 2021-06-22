@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textViewGeneraLote"
                 android:layout_marginTop="10dp"
-                android:text="Selecciona feha de llenado : " />
+                android:text="Selecciona fecha de llenado : " />
 
             <EditText
                 android:id="@+id/editfechaLlenado"
@@ -124,41 +124,26 @@
                 android:layout_below="@+id/textTanque" />
 
             <TextView
-                android:id="@+id/textViewPresion"
+                android:id="@+id/textViewObservaciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/spinnerTanque"
                 android:layout_marginTop="10dp"
-                android:text="Presión : " />
+                android:text="Observaciones : " />
 
             <EditText
-                android:id="@+id/textEditPresion"
+                android:id="@+id/textEditObservaciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewPresion"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textViewPesoBruto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textEditPresion"
-                android:layout_marginTop="70dp"
-                android:text="Peso bruto(Kg) : " />
-
-            <EditText
-                android:id="@+id/textEditPesoBruto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewPesoBruto"
-                android:inputType="numberDecimal" />
+                android:layout_below="@+id/textViewObservaciones"
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/textViewPesoTara"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textEditPesoBruto"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/textEditObservaciones"
+                android:layout_marginTop="30dp"
                 android:text="Peso tara(Kg) : " />
 
             <EditText
@@ -169,12 +154,27 @@
                 android:inputType="numberDecimal" />
 
             <TextView
-                android:id="@+id/textViewPesoNeto"
+                android:id="@+id/textViewPesoBruto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textEditPesoTara"
                 android:layout_marginTop="10dp"
-                android:text="Peso neto(Lt) : " />
+                android:text="Peso bruto(Kg) : " />
+
+            <EditText
+                android:id="@+id/textEditPesoBruto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPesoBruto"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/textViewPesoNeto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPesoBruto"
+                android:layout_marginTop="10dp"
+                android:text="Peso neto(Kg) : " />
 
             <EditText
                 android:id="@+id/textEditPesoNeto"
@@ -185,15 +185,38 @@
                 android:focusable="false"
                 android:inputType="numberDecimal" />
 
-            <Button
-                android:id="@+id/btnGeneraLoteLlenado"
+            <TextView
+                android:id="@+id/textViewVolumenNeto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textEditPesoNeto"
                 android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                android:onClick="generaLoteOnClick"
-                android:text="Calcula Peso Neto" />
+                android:text="Volumen neto(Lt) : " />
+
+            <EditText
+                android:id="@+id/textEditVolumenNeto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewVolumenNeto"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/textViewMermaLlenado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditVolumenNeto"
+                android:layout_marginTop="10dp"
+                android:text="Merma de Llenado (Lt): " />
+
+            <EditText
+                android:id="@+id/textEditMermaLlenado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewMermaLlenado"
+                android:inputType="numberDecimal" />
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

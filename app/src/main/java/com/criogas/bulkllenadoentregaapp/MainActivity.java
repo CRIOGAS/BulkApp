@@ -1,11 +1,10 @@
 package com.criogas.bulkllenadoentregaapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
+import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,13 +13,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.criogas.bulkllenadoentregaapp.model.OrdenVenta;
-import com.criogas.bulkllenadoentregaapp.rest.RestApiPipas;
+import com.criogas.bulkllenadoentregaapp.rest.ResConversionProducto;
+import com.criogas.bulkllenadoentregaapp.rest.ResConversionProductoImp;
 import com.criogas.bulkllenadoentregaapp.rest.RestSalesOrder;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
-import java.net.URL;
-
 public class MainActivity extends AppCompatActivity {
+    public SweetAlertDialog progressUpdateDialog;
+
 
     /**
      *
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         //super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //this.initBaseActivity();
+
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -46,31 +47,18 @@ public class MainActivity extends AppCompatActivity {
                                     .setConfirmText("OK").show();
                         }*/
                 } else if (position == 1) {
-                    Intent intent = new Intent(MainActivity.this, SeleccionaClienteActivity.class);
+                    Intent intent = new Intent(MainActivity.this, EntregaOvClienteActivity.class);
                     //intent.putExtra(Remision.PROPIETARIO_FIELD, Remision.REMISION_CRIOGAS);
                     startActivity(intent);
                     finish();
                 } else if (position == 2) {
-                    new SweetAlertDialog(MainActivity.this, SweetAlertDialog.WARNING_TYPE)
-                            .setTitleText("Confirmar Sincronización")
-                            .setContentText("¿Esta seguro que desea guardar la ruta?")
-                            .setConfirmText("SI")
-                            .setCancelText("NO")
-                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sDialog) {
-                                            /*if (!MainActivity.isProcesandoRuta) {
-                                                sDialog.dismissWithAnimation();
-                                                ArrayList<Cilindro> lstCilsNoEntregados = daoCilindros.getCilsNoEntregados();
-                                                MainActivity.isProcesandoRuta = true;
-                                                RestCierraRemisiones restCierraRemisiones = new RestCierraRemiesionesImpl(MainActivity.this);
-                                                restCierraRemisiones.validaRemisionesProcesada();
-                                            }*/
-                                }
-                            }).show();
+                    //startProgressBar();
+                    ResConversionProducto resConversionProducto = new ResConversionProductoImp(MainActivity.this, progressUpdateDialog);
+                    resConversionProducto.sincronizaConversionProducto();
+
                 } else if (position == 3) {
-                    Intent intent = new Intent(MainActivity.this, ReimpresionTicketActivity.class);
-                    //intent.putExtra(BaseActivity.MODULE_FLAG, 0);
+
+                    Intent intent = new Intent(MainActivity.this, TomaFotoTicket.class);
                     startActivity(intent);
                 }
                 /*} else {
@@ -91,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listViewMainMenu);
         listView.setOnItemClickListener(itemClickListener);
 
-        new GetInfoFromRest().execute();
+        //new GetInfoFromRest().execute();
 
         super.onCreate(savedInstanceState);
     }
@@ -103,9 +91,6 @@ public class MainActivity extends AppCompatActivity {
     private class GetInfoFromRest extends AsyncTask<Void, Void, String> {
 
         protected String doInBackground(Void... params) {
-            RestApiPipas apiPipas = new RestApiPipas();
-            String token = apiPipas.getToken();
-
             RestSalesOrder restSalesOrder = new RestSalesOrder();
             OrdenVenta ov = restSalesOrder.GetByID(1484);
             String dato = ov.getCliente() + " - " + ov.getProducto() + " - " + ov.getDesccorta() + " - " + ov.getRevision() + " - " + ov.getPipa() + " - " + ov.getQty() + " - " + ov.getUdm();
@@ -119,6 +104,13 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void startProgressBar() {
+        progressUpdateDialog = new SweetAlertDialog(MainActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+        progressUpdateDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        progressUpdateDialog.setTitleText("Sincronizando Datos");
+        progressUpdateDialog.setContentText("");
     }
 
     @Override

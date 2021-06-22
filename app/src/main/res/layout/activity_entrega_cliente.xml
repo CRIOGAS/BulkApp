@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_selecciona_ov"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        tools:context="com.criogas.bulkllenadoentregaapp.EntregaCliente">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textViewGeneraLote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Entrega Cliente"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/textViewTipoEntrega"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewGeneraLote"
+                    android:layout_marginTop="50dp"
+                    android:text="Tipo de entrega : " />
+
+                <Spinner
+                    android:id="@+id/spinnerTipoEntrega"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/tipo_entrega"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/textViewTipoEntrega"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/textViewCantidadFlujometro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinnerTipoEntrega"
+                    android:layout_marginTop="35dp"
+                    android:text="Volumen de Flujometro (Lt) : " />
+
+                <EditText
+                    android:id="@+id/textEditCantidadFlujometro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewCantidadFlujometro"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewPesoBruto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textEditCantidadFlujometro"
+                    android:layout_marginTop="10dp"
+                    android:text="Peso bruto(Kg) : " />
+
+                <EditText
+                    android:id="@+id/textEditPesoBruto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewPesoBruto"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewPesoTara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textEditPesoBruto"
+                    android:layout_marginTop="35dp"
+                    android:text="Peso tara(Kg) : " />
+
+                <EditText
+                    android:id="@+id/textEditPesoTara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewPesoTara"
+                    android:inputType="numberDecimal" />
+
+
+
+                <TextView
+                android:id="@+id/textViewPesoNeto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPesoTara"
+                android:layout_marginTop="10dp"
+                android:text="Peso neto(Kg) : " />
+
+
+                <EditText
+                    android:id="@+id/textEditPesoNeto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewPesoNeto"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="numberDecimal" />
+
+                <!--<TextView
+                    android:id="@+id/textViewUnidadDeConversion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textEditPesoNeto"
+                    android:layout_marginTop="15dp"
+                    android:text="Unidad de Conversión : " />
+                <Spinner
+                    android:id="@+id/spinnerUnidadDeConversion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/unidad_de_medida"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/textViewUnidadDeConversion"
+                    android:focusable="true" />-->
+
+                <TextView
+                android:id="@+id/textViewVolumenNeto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEditPesoNeto"
+                android:layout_marginTop="15dp"
+                android:text="Total Neto : " />
+
+                <EditText
+                    android:id="@+id/textEditVolumenNeto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewVolumenNeto"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="numberDecimal" />
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>

@@ -191,10 +191,10 @@ public class SeleccionaOrdenVentaActivity extends AppCompatActivity {
 
         if(ok) {
             Intent  intent = new Intent(SeleccionaOrdenVentaActivity.this, CreaLoteLLneado.class);
-                    intent.putExtra("idOrdenes", idOrdenes);
-                    intent.putExtra("producto", cveProductoSeleccionado);
-                    intent.putExtra("listaOrdenProductoSeleccionado", listaOVSeleccionada);
-                    intent.putExtra("cvePipa",clavePipa);
+            intent.putExtra("idOrdenes", idOrdenes);
+            intent.putExtra("producto", cveProductoSeleccionado);
+            intent.putExtra("listaOrdenProductoSeleccionado", listaOVSeleccionada);
+            intent.putExtra("cvePipa",clavePipa);
             startActivity(intent);
         }else{
             MensajeAlerta();
@@ -208,17 +208,17 @@ public class SeleccionaOrdenVentaActivity extends AppCompatActivity {
     public void MensajeAlerta(){
         progressUpdateDialog.dismiss();
         new SweetAlertDialog(SeleccionaOrdenVentaActivity.this, SweetAlertDialog.WARNING_TYPE)
-        .setTitleText("Verifique OV seleccionada")
-        .setContentText("Seleccione ordenes de venta del mismo producto o seleccione al menos una OV.")
-        //.setCancelText("OK")
-        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                Intent intent = new Intent(SeleccionaOrdenVentaActivity.this,SeleccionaOrdenVentaActivity.class);
-                startActivity(intent);
-                progressUpdateDialog.hide();
-            }
-        }).show();
+                .setTitleText("Verifique OV seleccionada")
+                .setContentText("Seleccione ordenes de venta del mismo producto o seleccione al menos una OV.")
+                //.setCancelText("OK")
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        Intent intent = new Intent(SeleccionaOrdenVentaActivity.this,SeleccionaOrdenVentaActivity.class);
+                        startActivity(intent);
+                        progressUpdateDialog.hide();
+                    }
+                }).show();
     }
 
 }

@@ -269,7 +269,7 @@ public class RestInfoLenadoPipaImplement implements RestInfoLlenadoPipa {
                             try {
                                 String response = new String(responseBody, "UTF-8");
                                 CreaLoteLLneado.pesoNeto = Double.parseDouble(response);
-                                CreaLoteLLneado.editTextPesoNeto.setText(CreaLoteLLneado.pesoNeto.toString());
+                                CreaLoteLLneado.editTextVolumenNeto.setText(CreaLoteLLneado.pesoNeto.toString());
                                 progressUpdateDialog.hide();
                             }catch (Exception ex){
                                 ex.printStackTrace();

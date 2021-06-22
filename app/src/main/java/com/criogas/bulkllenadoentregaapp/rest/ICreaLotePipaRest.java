@@ -14,6 +14,8 @@ public interface ICreaLotePipaRest {
                                String tanque,
                                String presion,
                                String pesoNeto,
-                               String pipa);
+                               String pipa,
+                               String observaciones,
+                               String mermaLlenado);
 
 }

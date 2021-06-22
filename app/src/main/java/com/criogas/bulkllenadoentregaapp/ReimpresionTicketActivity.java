@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 public class ReimpresionTicketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_reimpresion_ticket);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reimpresion_ticket);
     }
 }

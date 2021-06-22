@@ -27,14 +27,14 @@ import cz.msebera.android.httpclient.message.BasicHeader;
 
 public class RestOrdenVentaImplement implements RestOrdenVentaI {
 
-    private SweetAlertDialog sweetAlertDialog;
+    //private SweetAlertDialog sweetAlertDialog;
     private Context context;
     private OrdenVentaAdapter ordenVentaAdapter;
     private SweetAlertDialog progressUpdateDialog;
 
-    public RestOrdenVentaImplement(Context context, SweetAlertDialog sweetAlertDialog) {
+    public RestOrdenVentaImplement(Context context, SweetAlertDialog progressUpdateDialog) {
         this.context=context;
-        this.sweetAlertDialog=sweetAlertDialog;
+        this.progressUpdateDialog=progressUpdateDialog;
     }
 
     @Override
@@ -75,12 +75,12 @@ public class RestOrdenVentaImplement implements RestOrdenVentaI {
                         }
 
                         public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject jsonObject) {
-                            sweetAlertDialog.dismissWithAnimation();
+                            progressUpdateDialog.hide();
                             // new MensajeErrorConexion(ctx).showError();
 
                             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                                     .setTitleText("Error Conexión")
-                                    .setContentText("Error al conectar a: " + RestClient.BASE_URL + "\nFavor de acercarse al receptor")
+                                    .setContentText(throwable + "")
                                     .setConfirmText("¡Ok!")
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
@@ -93,7 +93,7 @@ public class RestOrdenVentaImplement implements RestOrdenVentaI {
 
                         @Override
                         public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                            sweetAlertDialog.dismissWithAnimation();
+                            progressUpdateDialog.hide();
                             // new MensajeErrorConexion(ctx).showError();
 
                             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
@@ -111,7 +111,7 @@ public class RestOrdenVentaImplement implements RestOrdenVentaI {
 
                         @Override
                         public void onRetry(int retryNo) {
-                            sweetAlertDialog.dismissWithAnimation();
+                            progressUpdateDialog.dismissWithAnimation();
                             //  new MensajeErrorConexion(ctx).showError();
 
                             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
@@ -131,7 +131,7 @@ public class RestOrdenVentaImplement implements RestOrdenVentaI {
 
 
         }catch (Exception ex) {
-            sweetAlertDialog.hide();
+            progressUpdateDialog.hide();
             new MensajeErrorConexion(context).showError("Error de Conexión: " + ex.getMessage());
         }
 
