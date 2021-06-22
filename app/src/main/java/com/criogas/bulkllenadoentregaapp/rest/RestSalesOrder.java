@@ -198,6 +198,11 @@ public class RestSalesOrder {
         }
     }
 
+    /**
+     *
+     * @param prmDs
+     * @return
+     */
     private OrdenVenta GetByID_ToObject(String prmDs) {
         try {
 
